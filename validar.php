@@ -1,12 +1,12 @@
 <?php
-$usuario=$_POST['usuario'];
+$usuario=$_POST['num_empleado'];
 $contraseña=$_POST['contraseña'];
 session_start();
-$_SESSION['usuario']=$usuario;
+$_SESSION['num_empleado']=$usuario;
 
-$conexion=mysqli_connect("localhost","root","12345","rol");
+$conexion=mysqli_connect("localhost","root","","hpp");
 
-$consulta="SELECT*FROM usuarios where usuario='$usuario' and contraseña='$contraseña'";
+$consulta="SELECT*FROM usuarios where num_empleado='$usuario' and contraseña='$contraseña'";
 $resultado=mysqli_query($conexion,$consulta);
 
 $filas=mysqli_fetch_array($resultado);
