@@ -12,18 +12,18 @@ $resultado=mysqli_query($conexion,$consulta);
 $filas=mysqli_fetch_array($resultado);
 
 if($filas['id_cargo']==1){ //administrador
-    header("location:admin.php");
+    header("location:index.html");
 
 }else
 if($filas['id_cargo']==2){ //cliente
-header("location:cliente.php");
+header("location:index.html");
 }
 else{
     ?>
     <?php
-    include("index.html");
+    include("login.html");
     ?>
-    <h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>
+    <center><h1 class="bad">ERROR EN LA AUTENTIFICACION</h1></center>
     <?php
 }
 mysqli_free_result($resultado);
