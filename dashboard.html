@@ -1,3 +1,28 @@
+<!--<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/cabecera.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+</head>
+<body>
+   <form action="validar.php" method="post">
+
+   <h1 class="animate__animated animate__backInLeft">Sistema de login</h1>
+
+   <p>Usuario <input type="text" placeholder="ingrese su numero de empleado" name="num_empleado"></p>
+
+   <p>Contraseña <input type="password" placeholder="ingrese su contraseña" name="contraseña"></p>
+   
+   <input type="submit" value="Ingresar">
+   
+   </form> 
+</body>
+</html>
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +82,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="vacaciones.html">
+                <a class="nav-link" href="solicitar_vacaciones.html">
                     <i class="fas fa-fw fa-laugh-wink"></i>
                     <span>Vacaciones</span>
                 </a>
@@ -208,6 +233,8 @@
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
+                                   
+                                    
                                 </a>
                             </div>
                         </li>
@@ -219,83 +246,133 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h1>Vacaciones</h1>
-                    <!-- historial de vacaciones -->
+                    <!-- tarjeta de informacion-->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Historial</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Perfil</h6>
                         </div>
                         <div class="card-body">
-                        <h4>Fecha actual</h4>
-                        <br>
-                        <h4>Nombre: name</h4>
-                        
-                        <h4>Fecha de ingreso: dd/mm/aaaa</h4>    
+                            <div class="image-profile">
+                                <img src="img/noprofile.png" alt="Perfil" >  
+                                
+                            </div>
+                            <div class="information">
+                                
+                                <h4>Nombre</h4>
+                                <h3>Roberto Carlos Juárez Pérez</h3>
+                                <h5>Fecha de ingreso</h5>
+                                <h5>21/06/2021</h5>
+                                <h5>Telefono</h5>
+                                <h5>5586340992</h5>
                             
-                        <h4>Dias disponibles</h4>
-                        <div class="container">
-                        <table class="table table">
-                            <tbody> 
-                                <td>Periodo anterior</td>
-                                <td>Periodo actual</td>
-                            </tbody>
+                            </div>
                             
-                            <tr>
-                                <td>n dias</td>
-                                <td>n dias</td>
-                            </tr>
-                        </table>
                         </div>
-                        <div class="container">
-                            <center><h1>Historial de vacaciones</h1></center>
+                    </div>
+                    <!-- tarjeta de mi equipo-->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Mi equipo</h6>
+                        </div>
+                        <div class="card-body">
                             <div class="table-responsive">
+                                <div>
+                                    
+                                    <button id="btn-abrir-popup" class="btn btn-success btn-icon-split" type="button" data-dismiss="modal">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                        <span class="text">Agregar</span>
+                                    </button>
+                                </div>
+                                <div class="contenedor">
+                                    <div id="overlay" class="overLay">
+                                        <div id="popup" class="popup">
+                                             
+                                            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                                            <h3>Busqueda de usuarios</h3>
+                                            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="button">
+                                                            <i class="fas fa-search fa-sm"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Num. Solicitud</th>
-                                            <th>Fecha</th>
-                                            <th>Status</th>
+                                            <th>N° Empleado</th>
+                                            <th>Nombres</th>
+                                            <th>Apellido paterno</th>
+                                            <th>Apellido materno</th>
+                                            <th>Area</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Num. Solicitud</th>
-                                            <th>Fecha</th>
-                                            <th>Status</th>
+                                            <th>N° Empleado</th>
+                                            <th>Nombres</th>
+                                            <th>Apellido paterno</th>
+                                            <th>Apellido materno</th>
+                                            <th>Area</th>
+                                            <th>Acciones</th>
                                             
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>1115</td>
-                                            <td>dd/mm/aaaa</td>
-                                            <td>disfrutada</td>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td><center><a href="#" class="btn btn-danger btn-circle">
+                                                <i class="fas fa-trash"></i>
+                                            </a></center>
+                                            </td>
                                             
                                         </tr>
-                                        
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td><center><a href="#" class="btn btn-danger btn-circle">
+                                                <i class="fas fa-trash"></i>
+                                            </a></center>
+                                            </td>
+                                           
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>66</td>
+                                            <td>2009/01/12</td>
+                                            <td><center><a href="#" class="btn btn-danger btn-circle">
+                                                <i class="fas fa-trash"></i>
+                                            </a></center>
+                                            </td>
+                                            
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!--solicitud de vacaciones 
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">solicitud</h6>
-                        </div>
-                        <div class="card-body">
-                            <center>
-                            <h1>¿Cuantos días desea de vacaciones?</h1>
-                            <form id="sol_vac" action="#">
-                                <br>
-                                <input type="text" placeholder="Ingrese numero de dias...">
-                                <br><br>
-                                <input type="submit" class="btn btn-success" value="confirmar">
-                            </form>
-                            </center>
-                        </div>
-                    </div>
-                    -->
+    
+    
+                    
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -344,6 +421,8 @@
         </div>
     </div>
 
+    <!-- Scripts Java Script -->
+    <script src="popup.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
